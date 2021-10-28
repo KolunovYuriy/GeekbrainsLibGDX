@@ -1,37 +1,13 @@
 package ru.geekbrains.gdx.game;
 
-import com.badlogic.gdx.ApplicationAdapter;
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.Sprite;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.graphics.g2d.TextureRegion;
-import com.badlogic.gdx.utils.ScreenUtils;
+import com.badlogic.gdx.Game;
+import ru.geekbrains.gdx.game.screen.MenuScreen;
 
-public class GdxGame extends ApplicationAdapter {
-	SpriteBatch batch;
-	Texture img, backfroundSpace;
+public class GdxGame extends Game {
 
 	@Override
 	public void create () {
-		batch = new SpriteBatch();
-		img = new Texture("badlogic.jpg");
-		backfroundSpace = new Texture(Gdx.files.internal("space.jpg"));
+		setScreen(new MenuScreen());
 	}
 
-	@Override
-	public void render () {
-		ScreenUtils.clear(1, 0, 0, 1);
-		TextureRegion t = ScreenUtils.getFrameBufferTexture();
-		batch.begin();
-		batch.draw(backfroundSpace,0, 0, t.getRegionWidth(), t.getRegionHeight());
-		batch.end();
-	}
-	
-	@Override
-	public void dispose () {
-		batch.dispose();
-		img.dispose();
-		backfroundSpace.dispose();
-	}
 }
