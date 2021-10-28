@@ -11,8 +11,7 @@ import com.badlogic.gdx.utils.ScreenUtils;
 public class GdxGame extends ApplicationAdapter {
 	SpriteBatch batch;
 	Texture img, backfroundSpace;
-	Sprite sprite;
-	
+
 	@Override
 	public void create () {
 		batch = new SpriteBatch();
@@ -26,7 +25,6 @@ public class GdxGame extends ApplicationAdapter {
 		TextureRegion t = ScreenUtils.getFrameBufferTexture();
 		batch.begin();
 		batch.draw(backfroundSpace,0, 0, t.getRegionWidth(), t.getRegionHeight());
-		//batch.draw(backfroundSpace,0, 0 ,Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
 		batch.end();
 	}
 	
@@ -34,5 +32,6 @@ public class GdxGame extends ApplicationAdapter {
 	public void dispose () {
 		batch.dispose();
 		img.dispose();
+		backfroundSpace.dispose();
 	}
 }
