@@ -21,8 +21,8 @@ public class Ship extends Sprite {
     private boolean isLeftButtonPressed = false;
     private boolean isRightButtonPressed = false;
 
-    public Ship(Texture texture) {
-        super(new TextureRegion(texture));
+    public Ship(TextureRegion region) {
+        super(region.split(region.getRegionWidth()/2, region.getRegionHeight())[0][0]);
         velocity = new Vector2();
     }
 
@@ -32,14 +32,6 @@ public class Ship extends Sprite {
         setHeightProportion(height);
         setBottom(worldBounds.getBottom());
         frame = 0;
-    }
-
-    public Ship(TextureAtlas atlas) {
-
-        super(atlas.findRegion("main_ship"));
-        //super(atlas.findRegion("main_ship").split(1,height)[0][0]);
-        //super(atlas.findRegion("main_ship"),2);
-        velocity = new Vector2();
     }
 
     public void keyDown(int keycode) {

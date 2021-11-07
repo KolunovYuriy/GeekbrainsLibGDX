@@ -30,7 +30,7 @@ public class GameScreen extends BaseScreen {
         for (int i = 0; i < stars.length; i++) {
             stars[i] = new Star(atlas);
         }
-        ship = new Ship(atlas);
+        ship = new Ship(atlas.findRegion("main_ship"));
     }
 
     @Override
