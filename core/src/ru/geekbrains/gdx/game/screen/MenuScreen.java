@@ -6,6 +6,7 @@ import com.badlogic.gdx.math.Vector2;
 import ru.geekbrains.gdx.game.base.BaseScreen;
 import ru.geekbrains.gdx.game.math.Rect;
 import ru.geekbrains.gdx.game.sprite.Background;
+import ru.geekbrains.gdx.game.sprite.Logo;
 
 public class MenuScreen extends BaseScreen {
 
@@ -14,6 +15,7 @@ public class MenuScreen extends BaseScreen {
     private Vector2 pos;
 
     private Background background;
+    private Logo logo;
 
     @Override
     public void show() {
@@ -22,6 +24,7 @@ public class MenuScreen extends BaseScreen {
         background = new Background(bg);
 
         img = new Texture("badlogic.jpg");
+        logo = new Logo(img, 0.1f, 0.1f);
         pos = new Vector2();
     }
 
@@ -36,7 +39,8 @@ public class MenuScreen extends BaseScreen {
         super.render(delta);
         batch.begin();
         background.draw(batch);
-        batch.draw(img, pos.x, pos.y, 0.5f, 0.5f);
+        logo.draw(batch);
+        //batch.draw(img, pos.x, pos.y, 0.5f, 0.5f);
         batch.end();
     }
 
@@ -49,7 +53,8 @@ public class MenuScreen extends BaseScreen {
 
     @Override
     public boolean touchDown(Vector2 touch, int pointer, int button) {
-        pos.set(touch);
+        logo.touchDown(touch, pointer, button);
+        //pos.set(touch);
         return super.touchDown(touch, pointer, button);
     }
 
